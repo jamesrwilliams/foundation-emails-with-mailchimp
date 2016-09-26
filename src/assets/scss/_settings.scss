@@ -30,7 +30,7 @@ $accentDarkGray: #70757c;
 // ---------
 
 $primary-color: $primaryBlue;
-$secondary-color: #777777;
+$secondary-color: #3da7a5;
 $success-color: #3adb76;
 $warning-color: #ffae00;
 $alert-color: #ec5840;
@@ -38,12 +38,12 @@ $light-gray: #f3f3f3;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
-$white: #fefefe;
+$white: #ffffff;
 $pre-color: #ff6908;
 $global-width: 580px;
 $global-width-small: 95%;
 $global-gutter: 16px;
-$body-background: #efefef;
+$body-background: $white;
 $container-background: none;
 $global-padding: 16px;
 $global-margin: 16px;
@@ -115,9 +115,9 @@ $button-padding: (
 );
 $button-font-size: (
   tiny: 10px,
-  small: 12px,
-  default: 16px,
-  large: 20px,
+  small: 14px,
+  default: $global-font-size,
+  large: 14px,
 );
 $button-color: $white;
 $button-color-alt: $medium-gray;

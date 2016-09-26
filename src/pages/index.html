@@ -5,11 +5,10 @@ description: Although you don’t have to use it in order to send emails with Ma
 ---
 
 <container>
+
 	<row>
 
-		<columns small="12" large="12">
-
-			<h1 style="color: black;">Hello *|NAME|*!</h1>
+		<columns small="12" large="12" mc:edit="item_intro" mc:allowdesigner mc:allowtext >
 
 			<p>Although you don’t have to use it in order to send emails with MailChimp, our template language is a powerful, easy way to code your own email templates that are reusable and editable from within the application.</p>
 
@@ -17,77 +16,88 @@ description: Although you don’t have to use it in order to send emails with Ma
 
 	</row>
 
-	<spacer size="25"></spacer>
-
-	<row>
-
-		<columns small="12" large="6">
-
-			<h4>Section Heading 1</h4>
-			<p>Now you can see more detailed information about where your team mates are located, what they're posting about and how popular it is all in one simple updated profile page.</p>
-
-		</columns>
-
-		<columns small="12" large="6">
-
-			<img src="http://placehold.it/300x150" height="" width="" alt="" />
-			<spacer size="10"></spacer>
-			<button class="radius" href="#">Button Caption</button>
-
-		</columns>
-
-	</row>
-
 </container>
 
-<spacer size="25"></spacer>
+<div mc:repeatable="item_row">
 
-<div style="background: white">
-	<spacer size="25"></spacer>
 	<container>
 
 		<row>
 
 			<columns small="12" large="6">
 
-				<img src="http://placehold.it/300x150" height="" width="" alt="" />
-				<spacer size="10"></spacer>
-				<button class="radius" href="#">Button Caption</button>
+				<spacer size="20"></spacer>
+				<img mc:edit="item1_img" src="http://fusionweb.co.uk/email/example_2.png" height="" width="" alt="" />
 
 			</columns>
 
-			<columns small="12" large="6">
+			<columns small="12" large="6" mc:edit="item1_txt">
 
 				<h4>Section Heading 1</h4>
 				<p>With more mapping features and a new mobile app, you can stay connected wherever you are, no matter what device you're on and get work done faster.</p>
+				<spacer size="10"></spacer>
+				<button mc:edit="item1_button" class="radius small small-expanded secondary" href="#">Button Caption</button>
 
 			</columns>
 
 		</row>
 
 	</container>
-	<spacer size="25"></spacer>
+
 </div>
-<spacer size="25"></spacer>
-<container>
 
-	<row>
+<div mc:repeatable="item_row" mc:variant="content1">
 
-		<columns small="12" large="6">
+	<container>
 
-			<h4>Section Heading 1</h4>
-			<p>Now you can see more detailed information about where your team mates are located, what they're posting about and how popular it is all in one simple updated profile page.</p>
+		<row>
 
-		</columns>
+			<columns small="12" large="6">
 
-		<columns small="12" large="6">
+				<spacer size="20"></spacer>
+				<img mc:edit="item1_img" src="http://fusionweb.co.uk/email/example_2.png" height="" width="" alt="" />
 
-			<img src="http://placehold.it/300x150" height="" width="" alt="" />
-			<spacer size="10"></spacer>
-			<button class="radius" href="#">Button Caption</button>
+			</columns>
 
-		</columns>
+			<columns small="12" large="6" mc:edit="item1_txt">
 
-	</row>
+				<h4>Section Heading 1</h4>
+				<p>With more mapping features and a new mobile app, you can stay connected wherever you are, no matter what device you're on and get work done faster.</p>
+				<spacer size="10"></spacer>
+				<button mc:edit="item1_button" class="radius small small-expanded secondary" href="#">Button Caption</button>
 
-</container>
+			</columns>
+
+		</row>
+
+	</container>
+
+</div>
+
+<div mc:repeatable="item_row" mc:variant="content1">
+
+	<container>
+
+		<row>
+
+			<columns small="12" large="6">
+
+				<spacer size="20"></spacer>
+				<img mc:edit="item1_img" src="http://fusionweb.co.uk/email/example_2.png" height="" width="" alt="" />
+
+			</columns>
+
+			<columns small="12" large="6" mc:edit="item1_txt">
+
+				<h4>Section Heading 1</h4>
+				<p>With more mapping features and a new mobile app, you can stay connected wherever you are, no matter what device you're on and get work done faster.</p>
+				<spacer size="10"></spacer>
+				<button mc:edit="item1_button" class="radius small small-expanded secondary" href="#">Button Caption</button>
+
+			</columns>
+
+		</row>
+
+	</container>
+
+</div>

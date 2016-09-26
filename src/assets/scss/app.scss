@@ -11,13 +11,19 @@ header {
 
 }
 
-footer {
+.callToAction {
 
-	p,
-	a {
+	p { color: white; }
+	a {background: white; color: #444 !important; }
+	background: $primaryBlue;
 
-		color: white;
+}
 
-	}
+.footer {
+
+	p, p small { font-size: 12px; }
+	background: #efefef;
+
+	border-bottom: 1px solid #eee;
 
 }
