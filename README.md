@@ -1,6 +1,6 @@
 # Fusion Marketing Emails
 
-Build using [Foundation for Emails](http://github.com/zurb/foundation-emails/).
+Built using [Foundation for Emails](http://github.com/zurb/foundation-emails/).
 
 ## Summary
 
