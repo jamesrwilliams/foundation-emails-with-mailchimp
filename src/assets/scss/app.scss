@@ -3,6 +3,8 @@
 
 header {
 
+	border-top: 1px solid #ccc;
+
 	#logo {
 
 		width: 200px;
@@ -21,7 +23,7 @@ header {
 
 .footer {
 
-	p, p small { font-size: 12px; }
+	p, p small { font-size: 12px; color: $accentDarkGray !important; }
 	background: #efefef;
 
 	border-bottom: 1px solid #eee;
