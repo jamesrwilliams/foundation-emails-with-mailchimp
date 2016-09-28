@@ -83,7 +83,7 @@ function mailchimp() {
 
 	if(MAILCHIMP){ 	var mcCSS = fs.readFileSync("src/mailchimp/editable.css").toString(); }
 
-	return gulp.src('dist/index.html')
+	return gulp.src('dist/*.html')
 		.pipe($.if(MAILCHIMP, inject.after('</title>', '\n<style>' + mcCSS + '</style>\n')))
 		.pipe(gulp.dest('./dist/'));
 

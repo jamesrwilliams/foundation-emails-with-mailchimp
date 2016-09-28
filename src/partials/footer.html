@@ -6,7 +6,7 @@
 
 			<columns small="12" large="12" mc:edit="item_outro">
 
-				<p>Although you don’t have to use it in order to send emails with MailChimp, our template language is a powerful, easy way to code your own email templates that are reusable and editable from within the application.</p>
+				<h5>If you’ve got a website design project in the pipeline, get in touch to see how we could help.</h5>
 
 			</columns>
 
@@ -16,7 +16,7 @@
 			<columns></columns>
 			<columns small="12" large="8">
 
-				<button class="radius expanded" id="cta_btn" href="#">Contact Us Today</button>
+				<button mc:edit="cta_link" class="radius expanded" id="cta_btn" href="#">Contact Us Today</button>
 
 			</columns>
 			<columns></columns>
@@ -34,15 +34,20 @@
 			<columns small="12" large="12">
 
 				<p>Talk to us on the phone <a href="tel:+4401242512420">+44 (0)1242 512420</a> or by email to <a href="mailto:info@fusionweb.co.uk">info@fusionweb.co.uk</a><br />
-				Fusion Design &amp; Print Ltd.
-				St. George's House,
-				29 St. George's Road,
-				Cheltenham,
-				Glos.| GL50 3DU</p>
+				*|HTML:LIST_ADDRESS|*</p>
 
-				<p>© 2016 Fusion Design and Print Ltd.</p>
+				<p>
+					*|LIST:DESCRIPTION|*<br />
+					<a href="*|UNSUB|*">Unsubscribe</a> *|EMAIL|* from this list.
+				</p>
 
-				<p><small><a href="*|UNSUB|*">Unsubscribe</a></small></p>
+				<p>Copyright (C) *|CURRENT_YEAR|* *|LIST:COMPANY|* All rights reserved.<br />
+
+				<a href="*|FORWARD|*">Forward</a> this email to a friend -
+
+				<a href="*|UPDATE_PROFILE|*">Update your profile</a></br /></p>
+
+				<center>*|IF:REWARDS|* *|HTML:REWARDS|* *|END:IF|*</center>
 
 			</columns>
 

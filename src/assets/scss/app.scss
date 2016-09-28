@@ -16,16 +16,61 @@ header {
 .callToAction {
 
 	p { color: white; }
-	a {background: white; color: #444 !important; }
+	a {background: none; color: white !important; }
 	background: $primaryBlue;
+
+	h5 { color: white; text-align: center; font-weight: 100;}
+
+	.button {
+
+		background: none;
+		width: 99% !important;
+		color: white !important;
+		border: 2px solid white;
+		border-collapse: separate;
+		border-radius: 5px;
+
+	}
 
 }
 
 .footer {
 
-	p, p small { font-size: 12px; color: $accentDarkGray !important; }
 	background: #efefef;
-
 	border-bottom: 1px solid #eee;
+
+	p,
+	p small {
+
+		font-size: 12px;
+		color: $accentDarkGray !important;
+
+	}
+
+}
+
+.content_row,
+.content_row_alt {
+
+	padding-bottom: 10px;
+
+	h4 {
+
+		line-height: 1.3;
+
+	}
+
+}
+
+.content_row:not(first-of-type){
+
+	padding-top: 25px;
+
+}
+
+.content_row_alt {
+
+	padding: 25px 0;
+	background: #efefef;
 
 }
