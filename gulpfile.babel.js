@@ -12,18 +12,22 @@ import path     from 'path';
 import merge    from 'merge-stream';
 import beep     from 'beepbeep';
 import colors   from 'colors';
+import inject   from 'gulp-inject-string';
 
 const $ = plugins();
 
 // Look for the --production flag
 const PRODUCTION = !!(yargs.argv.production);
 
+// Look for the --mailchimp flag
+const MAILCHIMP = !!(yargs.argv.mailchimp);
+
 // Declar var so that both AWS and Litmus task can use it.
 var CONFIG;
 
 // Build the "dist" folder by running all of the above tasks
 gulp.task('build',
-  gulp.series(clean, pages, sass, images, inline));
+  gulp.series(clean, pages, sass, images, inline, mailchimp));
 
 // Build emails, run the server, and watch for file changes
 gulp.task('default',
@@ -74,6 +78,17 @@ function sass() {
     .pipe(gulp.dest('dist/css'));
 }
 
+// Prepend MailChimp Values to HTML
+function mailchimp() {
+
+	if(MAILCHIMP){ 	var mcCSS = fs.readFileSync("src/mailchimp/editable.css").toString(); }
+
+	return gulp.src('dist/index.html')
+		.pipe($.if(MAILCHIMP, inject.after('</title>', '\n<style>' + mcCSS + '</style>\n')))
+		.pipe(gulp.dest('./dist/'));
+
+}
+
 // Copy and compress images
 function images() {
   return gulp.src('src/assets/img/**/*')
@@ -100,7 +115,7 @@ function server(done) {
 function watch() {
   gulp.watch('src/pages/**/*.html').on('change', gulp.series(pages, inline, browser.reload));
   gulp.watch(['src/layouts/**/*', 'src/partials/**/*']).on('change', gulp.series(resetPages, pages, inline, browser.reload));
-  gulp.watch(['../scss/**/*.scss', 'src/assets/scss/**/*.scss']).on('change', gulp.series(resetPages, sass, pages, inline, browser.reload));
+  gulp.watch(['../scss/**/*.scss', 'src/assets/scss/**/*.scss']).on('change', gulp.series(resetPages, sass, pages, inline, mailchimp, browser.reload));
   gulp.watch('src/assets/img/**/*').on('change', gulp.series(images, browser.reload));
 }
 
@@ -206,5 +221,3 @@ function zip() {
 
   return merge(moveTasks);
 }
-
-

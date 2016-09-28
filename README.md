@@ -39,7 +39,11 @@ Output to production minified code with inline css):
 ```bash
 npm run build
 ```
-## N.B
+
+Using MailChimp templates? Run the following command instead to export any editable rules in `src/mailchimp/editable.css` to the `/dist` source file:
+```bash
+npm run mailchimp
+```
 
 ### Templating with MailChimp
 
@@ -48,4 +52,4 @@ Using MailChimp it is a good idea when setting up new email templates to make us
 <p mc:edit="body"></p>
 ```
 
-For more information and details see the MailChimp [Templating Language Guide](http://templates.mailchimp.com/getting-started/template-language/)
+For more information and details see the MailChimp [Templating Language Guide](http://templates.mailchimp.com/getting-started/template-language/) and [Merge Tags Guide](http://templates.mailchimp.com/getting-started/merge-tags/basic-merge-tags/).

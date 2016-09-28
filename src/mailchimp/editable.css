@@ -1,0 +1,36 @@
+/* Leave Blank if you don't need mailchimp editable regions */
+
+/**
+* @tab Page
+* @section Row Alternate
+* @tip Set the styling for all first-level headings in your emails.
+* @style heading 1
+*/
+.content_row {
+
+	 /*@editable*/ background: #ffffff;
+
+}
+/**
+* @tab Page
+* @section Alternate Row
+* @tip Set the styling for all first-level headings in your emails.
+* @style heading 1
+*/
+.content_row_alt {
+
+	/*@editable*/ background: #efefef;
+
+}
+
+/**
+* @tab Page
+* @section Headings
+* @tip Set the styling for all first-level headings in your emails.
+* @style heading 1
+*/
+.content_row h4 {
+
+	/*@editable*/ line-height: 1.7;
+
+}
