@@ -63,9 +63,3 @@ Using MailChimp it is a good idea when setting up new email templates to make us
 ```
 
 For more information and details see the MailChimp [Templating Language Guide](http://templates.mailchimp.com/getting-started/template-language/) and [Merge Tags Guide](http://templates.mailchimp.com/getting-started/merge-tags/basic-merge-tags/).
-
-## Ideas
-
-- [ ] Add more consistent mc:edit labels with `mc:label=""`
-- [ ] Strip mc:edit and other mc tags if not using the MC flag
-- [ ] Better support for titles and previews.
