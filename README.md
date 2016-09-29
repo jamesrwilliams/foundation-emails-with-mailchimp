@@ -12,7 +12,7 @@ Built using [Foundation for Emails](http://github.com/zurb/foundation-emails/). 
 
 To use this template, your computer needs [Node.js](https://nodejs.org/en/) 0.12 or greater.
 
-**1. Install the Foundation CLI with this command **
+**1. Install the Foundation CLI with this command**
 
 ```bash
 npm install foundation-cli --global
