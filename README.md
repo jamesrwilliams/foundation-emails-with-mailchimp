@@ -1,12 +1,6 @@
 # Foundation for Emails & MailChimp
 
-## Summary
-
-Built using [Foundation for Emails](http://github.com/zurb/foundation-emails/). The idea behind this repository is to have a centralized version of our marketing emails easily accessible for use either directly or via third party services. Using F4Email setup this is made up of the following:
-
-- **Partials** - Individual reusable components of all layouts
-- **Layouts** - These are the core designs
-- **Pages** - Individual variations on the overall layouts which are ultimately imported into a service provider.
+Built using [Foundation for Emails](http://github.com/zurb/foundation-emails/).
 
 ## Setup
 
