@@ -4,13 +4,13 @@ subject: Hello World
 description: '*|MC:SUBJECT|*'
 ---
 
-<container>
+<container class="forward_text" mc:hideable>
 
 	<row>
 
-		<columns small="12" large="12" mc:edit="item_intro" mc:allowdesigner mc:allowtext >
+		<columns small="12" large="12" mc:allowdesigner mc:allowtext >
 
-			<p>Although you don’t have to use it in order to send emails with MailChimp, our template language is a powerful, easy way to code your own email templates that are reusable and editable from within the application.</p>
+			<p mc:edit="item_intro">Although you don’t have to use it in order to send emails with MailChimp, our template language is a powerful, easy way to code your own email templates that are reusable and editable from within the application.</p>
 
 		</columns>
 
@@ -26,17 +26,18 @@ description: '*|MC:SUBJECT|*'
 
 			<columns small="12" large="6">
 
-				<spacer size="12"></spacer>
-				<img mc:edit="item1_img" class="small-float-center" src="http://placehold.it/272x200" height="" width="" alt="" />
+				<img mc:edit="item1_img" class="small-float-center" src="http://placehold.it/534x300" height="" width="" alt="" />
 
 			</columns>
 
-			<columns small="12" large="6" mc:edit="item1_txt">
+			<columns small="12" large="6">
 
-				<h4>Section Heading 1 - A long example that keeps going and going</h4>
-				<p>With more mapping features and a new mobile app, you can stay connected wherever you are, no matter what device you're on and get work done faster.</p>
+				<h4 mc:edit="item1_heading">Section Heading 1 - A long example that keeps going and going</h4>
+				<p mc:edit="item1_body">With more mapping features and a new mobile app, you can stay connected wherever you are, no matter what device you're on and get work done faster.</p>
 				<spacer size="10"></spacer>
-				<button mc:edit="item1_button" class="radius small small-expanded secondary" href="#">Button Caption</button>
+				<div mc:edit="item1_button">
+					<button class="radius small small-expanded" href="#">Button Caption</button>
+				</div>
 
 			</columns>
 
@@ -46,25 +47,26 @@ description: '*|MC:SUBJECT|*'
 
 </div>
 
-<div class="content_row_alt" mc:label="Content Row" mc:repeatable="content_row" mc:variant="Left Content / Image Right">
+<div class="content_row_alt" mc:label="Content Row Alt" mc:repeatable="content_row" mc:variant="Left Content / Image Right">
 
 	<container>
 
 		<row>
 
-			<columns small="12" large="6" mc:edit="item1_txt">
+			<columns small="12" large="6">
 
-				<h4>Section Heading 1</h4>
-				<p>With more mapping features and a new mobile app, you can stay connected wherever you are, no matter what device you're on and get work done faster.</p>
+				<h4 mc:edit="item2_heading">Section Heading 1</h4>
+				<p mc:edit="item2_body">With more mapping features and a new mobile app, you can stay connected wherever you are, no matter what device you're on and get work done faster.</p>
 				<spacer size="10"></spacer>
-				<button mc:edit="item1_button" class="radius small small-expanded secondary" href="#">Button Caption</button>
+				<div mc:edit="item2_button">
+					<button class="radius small small-expanded" href="#">Button Caption</button>
+				</div>
 
 			</columns>
 
 			<columns small="12" large="6">
 
-				<spacer size="12"></spacer>
-				<img mc:edit="item1_img" class="small-float-center" src="http://placehold.it/272x200" height="" width="" alt="" />
+				<img mc:edit="item2_img" class="small-float-center" src="http://placehold.it/534x300" height="" width="" alt="" />
 
 			</columns>
 
