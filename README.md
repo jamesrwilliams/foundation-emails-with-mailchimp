@@ -1,5 +1,7 @@
 # Foundation for Emails & MailChimp
 
+![devDependency Status](https://david-dm.org/jamesrwilliams/foundation-emails-with-mailchimp.svg)
+
 Built using [Foundation for Emails](http://github.com/zurb/foundation-emails/).
 
 ## Setup
