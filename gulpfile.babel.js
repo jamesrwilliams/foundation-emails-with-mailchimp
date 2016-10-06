@@ -13,6 +13,7 @@ import merge    from 'merge-stream';
 import beep     from 'beepbeep';
 import colors   from 'colors';
 import inject   from 'gulp-inject-string';
+import replace	from 'gulp-replace';
 
 const $ = plugins();
 
@@ -78,14 +79,52 @@ function sass() {
     .pipe(gulp.dest('dist/css'));
 }
 
+
+
 // Prepend MailChimp Values to HTML
-function mailchimp() {
+function mailchimp(done) {
 
-	if(MAILCHIMP){ 	var mcCSS = fs.readFileSync("src/mailchimp/editable.css").toString(); }
+	if(MAILCHIMP === true){
 
-	return gulp.src('dist/*.html')
-		.pipe($.if(MAILCHIMP, inject.after('</title>', '\n<style>' + mcCSS + '</style>\n')))
-		.pipe(gulp.dest('./dist/'));
+		/*
+
+			TODO Enable Titles & Message Previews for Mailchimp using template tags
+			TODO Remplace Titles with INKY mailchimp tag if required
+			TODO Mailchimp merge tag footer vs. standard html footer - Defaults to basic html - if mailchimp will replace with mailchimp tags?
+
+			1. Mailchimp Pre - Runs pre-compile on src files (might need to move to temp?)
+
+				1.1 Replace default footer with mc version (needs compiling) - Do we just replace the text or replace the entire file?
+
+			2. Mailchimp.post - runs post combile on dist files
+
+				2.1 Adds Mailchimp Editable CSS (unmified to html)
+				2.2
+
+		*/
+
+		var mcCSS = fs.readFileSync("src/mailchimp/editable.css").toString();
+
+		return gulp.src('dist/*.html')
+			.pipe(inject.after('</title>', '\n<style>' + mcCSS + '</style>\n'))
+			.pipe(replace(/<span id="address"\s*(.*)\>(.*)<\/span>/igm, '<span id="address">*|HTML:LIST_ADDRESS|*</span>'))
+			.pipe(replace(/<p id="copyright"\s*(.*)\>(.|\n)*?<\/p>/igm, '<p id="copyright">Copyright (C) *|CURRENT_YEAR|* *|LIST:COMPANY|* All rights reserved.<br />\n<a href="*|FORWARD|*">Forward</a> this email to a friend -\n<a href="*|UPDATE_PROFILE|*">Update your profile</a></br /></p>'))
+			.pipe(gulp.dest('./dist/'))
+			.on('end', done);
+
+	}else{
+
+		/* Fallback done(); This closes this method for non-mailchimp flag builds */
+		done();
+
+	}
+
+}
+
+
+// Run MailChimp Prep Tasks
+function mailchimpPrep() {
+
 
 }
 
@@ -113,10 +152,23 @@ function server(done) {
 
 // Watch for file changes
 function watch() {
-  gulp.watch('src/pages/**/*.html').on('change', gulp.series(pages, inline, mailchimp, browser.reload));
-  gulp.watch(['src/layouts/**/*', 'src/partials/**/*']).on('change', gulp.series(resetPages, pages, inline, mailchimp, browser.reload));
-  gulp.watch(['../scss/**/*.scss', 'src/assets/scss/**/*.scss']).on('change', gulp.series(resetPages, sass, pages, inline, mailchimp, browser.reload));
-  gulp.watch('src/assets/img/**/*').on('change', gulp.series(images, browser.reload));
+
+	if(MAILCHIMP === true){
+
+		gulp.watch('src/pages/**/*.html').on('change', gulp.series(pages, inline, mailchimp, browser.reload));
+	    gulp.watch(['src/layouts/**/*', 'src/partials/**/*']).on('change', gulp.series(resetPages, pages, inline, mailchimp, browser.reload));
+	    gulp.watch(['../scss/**/*.scss', 'src/assets/scss/**/*.scss']).on('change', gulp.series(resetPages, sass, pages, inline, mailchimp, browser.reload));
+	    gulp.watch('src/assets/img/**/*').on('change', gulp.series(images, browser.reload));
+
+	}else{
+
+		gulp.watch('src/pages/**/*.html').on('change', gulp.series(pages, inline, browser.reload));
+	    gulp.watch(['src/layouts/**/*', 'src/partials/**/*']).on('change', gulp.series(resetPages, pages, inline, browser.reload));
+	    gulp.watch(['../scss/**/*.scss', 'src/assets/scss/**/*.scss']).on('change', gulp.series(resetPages, sass, pages, inline, browser.reload));
+	    gulp.watch('src/assets/img/**/*').on('change', gulp.series(images, browser.reload));
+
+	}
+
 }
 
 // Inlines CSS into HTML, adds media query CSS into the <style> tag of the email, and compresses the HTML

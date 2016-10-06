@@ -8,7 +8,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp --production",
-	"mailchimp": "gulp --production --mailchimp",
+    "mailchimp": "gulp --production --mailchimp",
     "zip": "gulp zip --production",
     "litmus": "gulp litmus --production"
   },

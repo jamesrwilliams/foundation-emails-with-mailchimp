@@ -22,41 +22,30 @@ npm install
 
 ## CLI Commands
 
-Preview in development using live reload:
+**Preview in development using live**
 ```
 $ npm start
 ```
-Output to production minified code with inline css:
+**Output to production minified code with inline css**
 
 ```bash
 npm run build
 ```
 
-## Artwork Specs
-
-Full column widths and padding the image dimensions needed for full-column graphics are as follows:
-
-| Column Width | Image Size Width |
-|--------------|------------------|
-| 1/1          | 548px            |
-| 1/2          | 264px            |
-| 1/3          | ?                |
-| 1/4          | ?                |
-| 1/5          | ?                |
-| 1/6          | ?                |
-
-
 ## Using MailChimp?
 
-Run the following command instead to export any editable rules in `src/mailchimp/editable.css` to the `/dist` source file:
+Run the following command instead to export any editable rules in `src/mailchimp/editable.css` to the `/dist` source file and use the merge tags for preview and title etc.
 
 ```bash
 npm run mailchimp
 ```
 
-Using MailChimp it is a good idea when setting up new email templates to make use of their templating language to make templates more editable using their interfaces. E.g:
-```html
-<p mc:edit="body"></p>
-```
+### Templating
 
-For more information and details see the MailChimp [Templating Language Guide](http://templates.mailchimp.com/getting-started/template-language/) and [Merge Tags Guide](http://templates.mailchimp.com/getting-started/merge-tags/basic-merge-tags/).
+Using MailChimp it is a good idea when setting up new email templates to make use of their templating language to make templates more editable using their interfaces. E.g: `<p mc:edit="body">`
+
+Quick Links to MailChimp guides:
+
+- [Templating Language Guide](http://templates.mailchimp.com/getting-started/template-language/)
+- [Merge Tags Guide](http://templates.mailchimp.com/getting-started/merge-tags/basic-merge-tags/)
+- [Merge Tags Cheat Sheet](http://kb.mailchimp.com/merge-tags/all-the-merge-tags-cheat-sheet)
